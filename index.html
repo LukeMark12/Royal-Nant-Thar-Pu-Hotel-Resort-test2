@@ -120,6 +120,29 @@
         .prev:hover, .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        /* Payment Section */
+        .payment-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .payment-method {
+            margin-bottom: 10px;
+        }
+        .payment-method label {
+            margin-right: 10px;
+        }
+        .payment-info {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -140,7 +163,7 @@
                     <img src="Beach Photo 1.jpg" alt="Beach photo 1">
                     <img src="beach photo 2.jpg" alt="Beach photo 2">
                     <img src="baech photo 3.jpg" alt="Beach photo 3">
-                    <img src="deluxe4.jpg" alt="Beach photo 4">
+                    <img src="beach photo 4.jpg" alt="Beach photo 4">
                 </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -224,6 +247,30 @@
             <p>If you have any questions or need assistance, feel free to reach out to us:</p>
             <p><strong>Email:</strong> info@luxurystay.com</p>
             <p><strong>Phone:</strong> +959254096571</p>
+            <h3>Payment Method</h3>
+            <div class="payment-section">
+                <div class="payment-method">
+                    <input type="radio" id="kbz-pay" name="payment" value="kbz-pay" onclick="showPaymentInfo('kbz-info')">
+                    <label for="kbz-pay">KBZ Pay</label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="wavepay" name="payment" value="wavepay" onclick="showPaymentInfo('wavepay-info')">
+                    <label for="wavepay">WavePay</label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="aya-pay" name="payment" value="aya-pay" onclick="showPaymentInfo('aya-info')">
+                    <label for="aya-pay">Aya Pay</label>
+                </div>
+                <div id="kbz-info" class="payment-info">
+                    <p>095193592, Make sure to add your Name as a note so that the hotel can who is sending to us</p>
+                </div>
+                <div id="wavepay-info" class="payment-info">
+                    <p>095193592, Make sure to add your Name as a note so that the hotel can who is sending to us</p>
+                </div>
+                <div id="aya-info" class="payment-info">
+                    <p>095193592, Make sure to add your Name as a note so that the hotel can who is sending to us</p>
+                </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -246,6 +293,12 @@
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.transform = `translateX(-${slideIndex * 100}%)`;
             }
+        }
+
+        function showPaymentInfo(infoId) {
+            const infos = document.querySelectorAll('.payment-info');
+            infos.forEach(info => info.style.display = 'none');
+            document.getElementById(infoId).style.display = 'block';
         }
     </script>
 </body>
